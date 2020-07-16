@@ -26,13 +26,15 @@
                 </div>
             </div>
             <div class="pt-4 font-weight-bold">
-                playstation.com
+                {{ $user->profile->title }}
             </div>
             <div class="">
-                PlayStation Network (PSN) is a digital media entertainment service provided by Sony Interactive Entertainment.
+                {{ $user->profile->description }}
             </div>
             <div class="font-weight-bold">
-                <a href="https://www.playstation.com/en-gb/">www.playstation.com</a>
+                <a href="{{ $user->profile->url }}">
+                    {{ $user->profile->url }}
+                </a>
             </div>
         </div>
     </div>
