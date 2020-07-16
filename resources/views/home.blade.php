@@ -4,13 +4,15 @@
 <div class="container">
     <div class="row">
         <div class="col-3 p-5">
-            <img src="svg/playstation.png" alt="psnlogo"
+            <img src="../svg/playstation.png" alt="psnlogo"
                 style="max-height: 100px;"
                 class="rounded-circle">
         </div>
         <div class="col-9 pt-5">
             <div>
-                <h1>PlayStation Network</h1>
+                <h1>
+                    {{ $user->username }}
+                </h1>
             </div>
             <div class="d-flex">
                 <div class="pr-5">
@@ -36,15 +38,15 @@
     </div>
     <div class="row pt-5">
         <div class="col-4">
-            <img src="svg/lastofus.png" alt="lastofus"
+            <img src="../svg/lastofus.png" alt="lastofus"
                 class="w-100">
         </div>
         <div class="col-4">
-            <img src="svg/deals.png" alt="hotdeals"
+            <img src="../svg/deals.png" alt="hotdeals"
                 class="w-100">
         </div>
         <div class="col-4">
-            <img src="svg/cyberpunk.png" alt="cyberpunk"
+            <img src="../svg/cyberpunk.png" alt="cyberpunk"
                 class="w-100">
         </div>
     </div>

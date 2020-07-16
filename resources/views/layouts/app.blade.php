@@ -25,7 +25,7 @@
             <div class="container">
                 <a class="navbar-brand d-flex" href="{{ url('/') }}">
                     <div>
-                        <img src="svg/instagramLogo.png" alt="instagramLogo"
+                        <img src="../svg/instagramLogo.png" alt="instagramLogo"
                             style="height: 20px;"
                             class="pr-3">
                     </div>
