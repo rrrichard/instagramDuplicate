@@ -40,7 +40,7 @@
                         id="image"
                         name="image">
 
-                    @error('caption')
+                    @error('image')
                         <strong>{{ $message }}</strong>
                     @enderror
                 </div>
