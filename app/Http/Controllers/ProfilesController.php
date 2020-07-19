@@ -38,6 +38,8 @@ class ProfilesController extends Controller
 
             $image = Image::make(public_path("storage/{$imagePath}"))->fit(1000, 1000);
             $image->save();
+
+            $imageArray = ['image' => $imagePath];
         }
 
         // not quite sure why just using update method works -- needs more investigating
@@ -45,7 +47,7 @@ class ProfilesController extends Controller
         // everyone can just go to the profiles page and edit
         auth()->user()->profile->update(array_merge(
             $data,
-            ['image' => $imagePath]       // this overrides the 'image' => '' above by using array_merge
+            $imageArray ?? []     // this overrides the 'image' => '' above by using array_merge
         ));
 
 
