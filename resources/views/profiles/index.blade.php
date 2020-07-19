@@ -4,9 +4,8 @@
 <div class="container">
     <div class="row">
         <div class="col-3 p-5">
-            <img src="../svg/playstation.png" alt="psnlogo"
-                style="max-height: 100px;"
-                class="rounded-circle">
+            <img src="{{ $user->profile->profileImage() }}" alt="psnlogo"
+                class="rounded-circle w-100">
         </div>
         <div class="col-9 pt-5">
             <div class="d-flex justify-content-between align-items-baseline">
