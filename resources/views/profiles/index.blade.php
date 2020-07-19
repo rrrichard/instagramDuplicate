@@ -13,9 +13,14 @@
                 <h1>
                     {{ $user->username }}
                 </h1>
-                <a href="/p/create">Add New Post</a>
+                @can('update', $user->profile)
+                    <a href="/p/create">Add New Post</a>
+                @endcan
             </div>
-            <a href="/profile/{{ $user->id }}/edit">Edit Profile</a>
+
+            @can('update', $user->profile)
+                <a href="/profile/{{ $user->id }}/edit">Edit Profile</a>
+            @endcan
 
             <div class="d-flex">
                 <div class="pr-5">
