@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Post;
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
 
@@ -11,6 +12,15 @@ class PostsController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+    }
+
+    public function index()
+    {
+        // this is for the HOME feed on insta, gathers all the people you are following
+        $users = auth()->user()->following()->pluck('profiles.user_id');
+
+        // then gathers up all the posts they have and displays it
+        $posts = Post::whereIn('user_id', $users)->latest()->get();
     }
 
     public function create()
