@@ -7,6 +7,11 @@ use App\User;
 
 class FollowsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function store(User $user)
     {
         // this handles the toggle on Follow and UnFollow

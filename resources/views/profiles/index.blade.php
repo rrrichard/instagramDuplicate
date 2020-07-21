@@ -12,7 +12,7 @@
                     <div class="h4">
                         {{ $user->username }}
                     </div>
-                    <follow-button user-id="{{ $user->id }}"></follow-button>
+                    <follow-button user-id="{{ $user->id }}" follows="{{ $follows }}"></follow-button>
                 </div>
 
                 @can('update', $user->profile)
@@ -29,7 +29,7 @@
                     <strong>{{ $user->posts->count() }}</strong> posts
                 </div>
                 <div class="pr-5">
-                    <strong>23k</strong> followers
+                    <strong>{{ $user->profile->followers->count() }}</strong> followers
                 </div>
                 <div class="pr-5">
                     <strong>212</strong> following

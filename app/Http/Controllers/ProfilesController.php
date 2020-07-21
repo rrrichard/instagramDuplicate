@@ -11,7 +11,9 @@ class ProfilesController extends Controller
     //
     public function index(User $user)
     {
-        return view('profiles.index', compact('user'));
+        // if the authenticated user's followings, does that contain the user that got passed in?
+        $follows = (auth()->user()) ? auth()->user()->following->contains($user->id) : false;
+        return view('profiles.index', compact('user', 'follows'));
     }
 
     public function edit(User $user)
