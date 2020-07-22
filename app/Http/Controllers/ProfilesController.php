@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use Intervention\Image\Facades\Image;
+use Illuminate\Support\Facades\Cache;
 
 class ProfilesController extends Controller
 {
@@ -13,7 +14,17 @@ class ProfilesController extends Controller
     {
         // if the authenticated user's followings, does that contain the user that got passed in?
         $follows = (auth()->user()) ? auth()->user()->following->contains($user->id) : false;
-        return view('profiles.index', compact('user', 'follows'));
+    
+        // caching for quicker loading
+        // will only do it for this one so the other methods can be seen
+        $postCount = Cache::remember('count.posts.' . $user->id, now()->addSeconds(30),
+        function () use ($user) {
+            return $user->posts->count();
+        });
+
+        $postCount = $user->posts->count();
+        $followersCount = $user->profile->followers->count();
+        return view('profiles.index', compact('user', 'follows', 'postCount', 'followersCount'));
     }
 
     public function edit(User $user)
