@@ -21,7 +21,7 @@ class PostsController extends Controller
 
         // then gathers up all the posts they have and displays it
         // paginate adds this method called links() which can be called in the blade.php
-        $posts = Post::whereIn('user_id', $users)->with('user')->latest()->paginate(1);
+        $posts = Post::whereIn('user_id', $users)->with('user')->latest()->paginate(5);
 
         return view('posts.index', compact('posts'));
     }
